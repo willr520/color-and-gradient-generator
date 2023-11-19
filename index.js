@@ -52,11 +52,11 @@ app.get('/generateColor', (req, res) => {
                 h1{
                     word-break: break-all;
                     overflow-wrap: break-word;
+                    background-color: rgba(255,255,255,.25);
+
                 }
 
-                h1:hover {
-                    color:white;
-                }
+        
 
                 h2 {
                     font-size: 20px;
@@ -67,6 +67,7 @@ app.get('/generateColor', (req, res) => {
                 a{
                     text-decoration:none;
                     color:${color};
+                    background-color: rgba(255,255,255,.25);
                 }
 
                 a:hover {
