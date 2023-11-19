@@ -1,0 +1,18 @@
+body {
+    background: black;
+    margin: 0;
+    width:100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Helvetica';
+    color: black;
+    font-size: 5vw;
+    flex-direction:column;
+    overflow-x: hidden;
+}
+
+form {
+    font-family:'Helvetica';
+}

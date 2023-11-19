@@ -4,14 +4,22 @@
 import express from 'express';
 //import { generateColor, generateSecondaryColor } from "@marko19907/string-to-color";
 import { generateColor, generateGradient } from "@marko19907/string-to-color";
+import path from 'path'
 
 const app = express();
 const port = process.env.PORT || 3000;
 
+const __filename = new URL(import.meta.url).pathname;
+const __dirname = path.dirname(__filename);
 
-app.get('/:generateColor', (req, res) => {
-    const data = req.params;
-    const word = data.generateColor;
+app.get('/', (req, res) => {
+    const indexPath = path.join(__dirname, 'index.html');
+    res.sendFile(indexPath);
+});
+
+app.get('/generateColor', (req, res) => {
+    const word = req.query.generateColor;
+    //const word = data.generateColor;
     const gradient = generateGradient(word);
     const color = generateColor(word);
     //const secondColor = generateSecondaryColor(word);
@@ -46,11 +54,25 @@ app.get('/:generateColor', (req, res) => {
                     overflow-wrap: break-word;
                 }
 
+                h1:hover {
+                    color:white;
+                }
+
                 h2 {
                     font-size: 20px;
                     color: white;
                     margin-top: 10px;
                 }
+                
+                a{
+                    text-decoration:none;
+                    color:${color};
+                }
+
+                a:hover {
+                    color:white;
+                }
+                
             </style>
             <title>Gradient Page</title>
         </head>
@@ -64,6 +86,9 @@ app.get('/:generateColor', (req, res) => {
         <h2>
         ${gradient}
         </h2>
+        <h2>
+        <a href="/">go back</a>
+       </h2>
         </body>
         </html>
     `;
@@ -77,4 +102,3 @@ app.listen(port, () => {
     console.log(`server is running on port ${port}`);
   
 });
-

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Generator</title>
+    <style>
+        body {
+    background: white;
+    margin: 0;
+    width:100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Helvetica';
+    color: black;
+    font-size: 25px;
+    flex-direction:column;
+    overflow-x: hidden;
+}
+
+input {
+    font-family:'Helvetica';
+    font-size: 25px;
+    border:none;
+    border-bottom:2px solid black;
+    font-weight: bold; ;
+}
+
+input:focus {
+    border:none;
+    border-bottom:2px solid black;
+    outline:none;
+}
+
+button {
+    font-family:'Helvetica';
+    font-size: 25px;
+    border:none;
+}
+
+button:hover {
+    color:white;
+    background-color: black;
+}
+        </style>
+</head>
+<body>
+    <form action="/generateColor" method="get">
+        <label for="colorInput">enter anything</label>
+        <input type="text" id="colorInput" name="generateColor" required>
+        <button type="submit">generate</button>
+    </form>
+</body>
+</html>
